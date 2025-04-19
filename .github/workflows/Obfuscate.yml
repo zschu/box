@@ -35,18 +35,18 @@ jobs:
           unzip -o worker.zip
           mv _worker.js origin.js
 
-      # - name: 混淆 BPB worker.js
-      #   run: |
-      #     javascript-obfuscator origin.js --output _worker.js \
-      #     --compact true \
-      #     --identifier-names-generator hexadecimal \
-      #     --rename-globals true \
-      #     --string-array true \
-      #     --string-array-encoding 'base64' \
-      #     --string-array-threshold 0.75 \
-      #     --transform-object-keys true \
-      #     --self-defending false \
-      #     --simplify true
+      - name: 混淆 BPB worker.js
+        run: |
+          javascript-obfuscator origin.js --output _worker.js \
+          --compact true \
+          --identifier-names-generator hexadecimal \
+          --rename-globals true \
+          --string-array true \
+          --string-array-encoding 'base64' \
+          --string-array-threshold 0.75 \
+          --transform-object-keys true \
+          --self-defending false \
+          --simplify true
 
       - name: 提交更改
         uses: stefanzweifel/git-auto-commit-action@v5
